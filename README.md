@@ -5,7 +5,7 @@ Status: Base code set up, GUI with input to be made
 
 Updates
  - 14.11.2021: Added base code to scraper.py
+ - 14.11.2021: Fixed bug of description not being fetched
 
 ToDo
-- Fix description not fetching bug
 - Added comments to code
