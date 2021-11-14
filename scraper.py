@@ -10,7 +10,7 @@ url = "https://www.olx.in/kerala_g2001160/cars_c84/q-polo-gt"
 
 service = Service('./chromedriver.exe')
 driver = webdriver.Chrome(service=service)
-driver.get(url)
+driver.get(driver)
 
 while True:
     try:
@@ -30,7 +30,7 @@ for listing in listings:
     price = listing.find("span", class_="_3GOwr").text
     detail = listing.find("div", class_="KFHpP").text
     desc = listing.find("div", class_="_4aNdc")
-    description = descgi.get('title')
+    description = desc.get('title')
     location = listing.find("div", class_="_1zvfB").text
     date_of_list = location.find("span")
     link = listing.find('a', href=True)
