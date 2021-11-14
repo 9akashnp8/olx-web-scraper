@@ -29,12 +29,13 @@ datas = []
 for listing in listings:
     price = listing.find("span", class_="_3GOwr").text
     detail = listing.find("div", class_="KFHpP").text
-    desc = listing.find("div", class_="_4aNdc").text
+    desc = listing.find("div", class_="_4aNdc")
+    description = descgi.get('title')
     location = listing.find("div", class_="_1zvfB").text
     date_of_list = location.find("span")
     link = listing.find('a', href=True)
     ad_link = link.get('href')
-    datas.append([price, detail, desc, location, date_of_list, ad_link])
+    datas.append([price, detail, description, location, date_of_list, ad_link])
 
 with open('scraped_data.csv', 'w', newline='', encoding="utf-8") as file:
     writer = csv.writer(file)
