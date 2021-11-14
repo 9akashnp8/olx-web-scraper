@@ -30,7 +30,7 @@ for listing in listings:
     price = listing.find("span", class_="_3GOwr").text
     detail = listing.find("div", class_="KFHpP").text
     desc = listing.find("div", class_="_4aNdc")
-    description = desc.get('title')
+    description = descgi.get('title')
     location = listing.find("div", class_="_1zvfB").text
     date_of_list = location.find("span")
     link = listing.find('a', href=True)
