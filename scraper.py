@@ -10,7 +10,7 @@ url = "https://www.olx.in/kerala_g2001160/cars_c84/q-polo-gt"
 
 service = Service('./chromedriver.exe')
 driver = webdriver.Chrome(service=service)
-driver.get(driver)
+driver.get(url)
 
 while True:
     try:
