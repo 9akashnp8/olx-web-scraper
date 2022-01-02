@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 import time
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 import csv
 
 url = "https://www.olx.in/kerala_g2001160/cars_c84/q-polo-gt"
