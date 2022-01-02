@@ -1,4 +1,4 @@
-<img align="right" width="100" height="100" src="https://i.imgur.com/uHdBRp2.png">
+<img align="right" width="150" height="auto" src="https://i.imgur.com/uHdBRp2.png">
 
 # Olx Web Scraper
 Scrap olx.in using python
