@@ -1,11 +1,26 @@
-# olx_web_scraper
-Use python to scrap for listings on olx.in based on search term.
+<img align="right" width="100" height="100" src="https://i.imgur.com/uHdBRp2.png">
 
-Status: Base code set up, GUI with input to be made
+# Olx Web Scraper
+Scrap olx.in using python
 
-Updates
- - 14.11.2021: Added base code to scraper.py
- - 14.11.2021: Fixed bug of description not being fetched
+## Table of Contents
+  - [About](#about)
+  - [How it works](#how-it-works)
+  - [Installation](#installation)
+  - [To-do](#todo)
 
-ToDo
-- Added comments to code
+## About
+Using selenium, scrap olx.in for listings of any search query and get the data saved on a csv for later analysis.
+
+## How it works
+Placeholder - to be update
+
+## Installation
+Placeholder - to be update
+
+## Todo
+- [ ] - Cleaning up
+  - [ ] - Remove unused packages
+  - [ ] - Add more comments
+- [ ] - Improve efficiency
+  - [ ] - Reduce wait times/make wait times automatic
