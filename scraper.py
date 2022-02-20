@@ -90,7 +90,7 @@ for listing in listings:
 
 '''WRITE SCRAPED LIST TO CSV'''
 search_query = input_url.split("/")[-1][2:] #extract the search query form the url
-with open(f'olx.in_scraped_data_for_{search_query}.csv', 'w', newline='', encoding="utf-8") as file: 
+with open(f'scraped_data/{search_query}.csv', 'w', newline='', encoding="utf-8") as file: 
     writer = csv.writer(file)
     headers = ['Price','Detail','Description', 'Location', 'Date of Listing', 'Link']
     writer.writerow(headers)
