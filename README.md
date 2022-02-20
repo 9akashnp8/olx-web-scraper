@@ -5,22 +5,29 @@ Scrap olx.in using selenium-python
 
 ## Table of Contents
   - [About](#about)
-  - [How it works](#how-it-works)
   - [Installation](#installation)
-  - [To-do](#todo)
+  - [How it works](#how-it-works)
 
 ## About
 Using selenium, scrap olx.in for listings of any search query and get the data saved on a csv for later analysis.
 
+## Installation
+1. Clone repo: 
+```
+git clone https://github.com/9akashnp8/olx_web_scraper.git
+```
+
+2. Create a virtual enviroment for the repo & activate it 
+```python
+python -m venv venv
+cd venv
+Scripts\activate.bat
+```
+
+3. Install all the required modules 
+```python
+pip install -r requirements.txt
+```
+
 ## How it works
 Insert flowchart here
-
-## Installation
-Placeholder - to be update
-
-## Todo
-- [X] - Cleaning up
-  - [X] - Remove unused packages
-  - [X] - Add more comments
-- [X] - Improve efficiency
-  - [X] - Reduce wait times/make wait times automatic
