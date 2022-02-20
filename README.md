@@ -30,4 +30,4 @@ pip install -r requirements.txt
 ```
 
 ## How it works
-Insert flowchart here
+![](https://i.imgur.com/iptsDh1.png)
