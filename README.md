@@ -16,11 +16,13 @@ Using selenium, scrap olx.in for listings of any search query and get the data s
 Placeholder - to be update
 
 ## Installation
-Placeholder - to be update
+1. Clone the repo
+2. Install requirements
+3. run scraper.py
 
 ## Todo
-- [ ] - Cleaning up
-  - [ ] - Remove unused packages
-  - [ ] - Add more comments
-- [ ] - Improve efficiency
-  - [ ] - Reduce wait times/make wait times automatic
+- [X] - Cleaning up
+  - [X] - Remove unused packages
+  - [X] - Add more comments
+- [X] - Improve efficiency
+  - [X] - Reduce wait times/make wait times automatic
