@@ -29,5 +29,10 @@ Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
+4. Run scraper.py 
+```python
+python scraper.py
+```
+
 ## How it works
 ![](https://i.imgur.com/iptsDh1.png)
