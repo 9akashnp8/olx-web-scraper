@@ -9,7 +9,7 @@ Scrap olx.in using selenium-python
   - [How it works](#how-it-works)
 
 ## About
-Using selenium, scrap olx.in for listings of any search query and get the data saved on a csv for later analysis.
+Using selenium, scrap olx id for listings of any search query and get the data saved on a csv for later analysis.
 
 ## Installation
 1. Clone repo: 
@@ -31,8 +31,5 @@ pip install -r requirements.txt
 
 4. Run scraper.py 
 ```python
-python scraper.py
+python scraper.py input_area input_brand input_model input_transmission input_year 
 ```
-
-## How it works
-![](https://i.imgur.com/iptsDh1.png)
