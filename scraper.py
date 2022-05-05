@@ -1,4 +1,5 @@
 #Import required selenium modules
+from pickle import FALSE
 import re
 import psycopg2
 import random
@@ -28,11 +29,16 @@ class Scraper:
     #Collect the data to scrap from user
     
     def __init__(self):
-        self.input_area = input("Area (Jakarta, Banten, Jawa Timur) :")
-        self.input_brand = input("Brand ('Toyota', 'Honda', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'BMW', 'Suzuki', 'Daihatsu', 'Mazda', 'Lexus', 'Hyundai', 'Chevrolet', 'Datsun') :")
-        self.input_model = input("Model (CR-V, HR-V, etc) :")
-        self.input_transmission = input("Transmission (automatic / manual) :")
-        self.input_year = input("Year (1994,2020) :")
+        self.input_area = sys.argv[1]
+        self.input_brand = sys.argv[2]
+        self.input_model = sys.argv[3]
+        self.input_transmission = sys.argv[4]
+        self.input_year = sys.argv[5]
+        # self.input_area = input("Area (Jakarta, Banten, Jawa Timur) :")
+        # self.input_brand = input("Brand ('Toyota', 'Honda', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'BMW', 'Suzuki', 'Daihatsu', 'Mazda', 'Lexus', 'Hyundai', 'Chevrolet', 'Datsun') :")
+        # self.input_model = input("Model (CR-V, HR-V, etc) :")
+        # self.input_transmission = input("Transmission (automatic / manual) :")
+        # self.input_year = input("Year (1994,2020) :")
         #Set chromedriver location (automated using webdriver-manager)
         self.service = Service(executable_path=ChromeDriverManager().install())
         #create a chrome webdriver instance
@@ -42,7 +48,7 @@ class Scraper:
     def db_init(self):
         self.connection = psycopg2.connect(user="postgres",
                                   password="Broom2021",
-                                  host="127.0.0.1",
+                                  host="price-scraping.cessoy2t6pfz.ap-southeast-3.rds.amazonaws.com",
                                   port="5432",
                                   database="postgres")
         self.cursor = self.connection.cursor()
@@ -217,17 +223,16 @@ class Scraper:
                     # ad_link = listing_link.get_attribute('href')
                     #Once data gathered, append them to the scraped_datas list
                     # print(price)
-                    print(car_type, price, years, odo, loc, date, ad_link, price_type)
-                    self.scraped_datas.append([car_type, price, years, odo, loc, date, ad_link, price_type])
+                    # print(car_type, price, years, odo, loc, date, ad_link, price_type)
+                    exist_in = any(ad_link in x for x in self.scraped_datas)
+                    print(exist_in)
+                    if exist_in != True:
+                        self.scraped_datas.append([car_type, price, years, odo, loc, date, ad_link, price_type])
                 except NoSuchElementException:
                     pass
                 pass
         if price_type == 'high':
-            new_url = self.initial_url.split("&")[0] + "&sorting=asc-price"
-
-            self.driver.get(new_url)
-            '''FIND LISTINGS AND STORE TO A LIST'''
-            time.sleep(15)
+            self.initial_url = self.initial_url.split("&")[0] + "&sorting=asc-price"
         else:
             pass
     
