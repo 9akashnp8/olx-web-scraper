@@ -1,7 +1,6 @@
 #Import required selenium modules
 import os
 from dotenv import load_dotenv
-from pickle import FALSE
 import re
 import psycopg2
 import random
