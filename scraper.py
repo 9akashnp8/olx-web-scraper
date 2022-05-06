@@ -1,4 +1,6 @@
 #Import required selenium modules
+import os
+from dotenv import load_dotenv
 from pickle import FALSE
 import re
 import psycopg2
@@ -11,6 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 #Import webdriver_manager for easy management (auto-updation, global path) of driver executable
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -19,6 +22,7 @@ import csv #csv for storing the scraped data
 import sys #sys for flushing the buffer (typing effect)
 
 class Scraper:
+    load_dotenv()
     area_list = ['Jakarta D.K.I.', 'Jawa Barat', 'Jawa Timur', 'Banten', 'Jawa Tengah', 'Yogyakarta D.I.', 'Sumatra Selatan', 'Sumatra Utara', 'Kalimantan Selatan', 'Bali', 'Riau', 'Lampung', 'Sulawesi Selatan', 'Aceh D.I.', 'Sumatra Barat', 'Kalimantan Timur', 'Kalimantan Barat', 'Jambi', 'Kepulauan Riau', 'Nusa Tenggara Barat']
     brand_list = ['Toyota', 'Honda', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'BMW', 'Suzuki', 'Daihatsu', 'Mazda', 'Lexus', 'Hyundai', 'Chevrolet', 'Datsun']
     scraped_datas = []
@@ -46,11 +50,11 @@ class Scraper:
         self.db_init()
     
     def db_init(self):
-        self.connection = psycopg2.connect(user="postgres",
-                                  password="Broom2021",
-                                  host="price-scraping.cessoy2t6pfz.ap-southeast-3.rds.amazonaws.com",
-                                  port="5432",
-                                  database="postgres")
+        self.connection = psycopg2.connect(user=os.getenv("USER"),
+                                  password=os.getenv("PASSWORD"),
+                                  host=os.getenv("HOST"),
+                                  port=os.getenv("PORT"),
+                                  database=os.getenv("DATABASE"))
         self.cursor = self.connection.cursor()
 
     def db_check(self):
