@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import re
 import psycopg2
 import random
+from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -44,6 +45,8 @@ class Scraper:
         # self.input_year = input("Year (1994,2020) :")
         #Set chromedriver location (automated using webdriver-manager)
         chrome_opt = webdriver.ChromeOptions()
+        display = Display(visible=0, size=(800, 800))  
+        display.start()
 
         chrome_opt.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2}) 
         chrome_opt.add_argument("--no-sandbox") 
