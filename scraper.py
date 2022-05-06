@@ -43,6 +43,21 @@ class Scraper:
         # self.input_transmission = input("Transmission (automatic / manual) :")
         # self.input_year = input("Year (1994,2020) :")
         #Set chromedriver location (automated using webdriver-manager)
+        chrome_opt = webdriver.ChromeOptions()
+
+        chrome_opt.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2}) 
+        chrome_opt.add_argument("--no-sandbox") 
+        chrome_opt.add_argument("--disable-setuid-sandbox") 
+
+        chrome_opt.add_argument("--remote-debugging-port=9222")  # this
+
+        chrome_opt.add_argument("--disable-dev-shm-using") 
+        chrome_opt.add_argument("--disable-extensions") 
+        chrome_opt.add_argument("--disable-gpu") 
+        chrome_opt.add_argument("start-maximized") 
+        chrome_opt.add_argument("disable-infobars")
+        chrome_opt.add_argument(r"user-data-dir=.\cookies\\test") 
+
         self.service = Service(executable_path=ChromeDriverManager().install())
         #create a chrome webdriver instance
         self.driver = webdriver.Chrome(service=self.service)
