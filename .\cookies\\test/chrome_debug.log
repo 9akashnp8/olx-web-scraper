@@ -1,0 +1,19 @@
+[60973:20227:0506/143955.137240:WARNING:spdy_session.cc(3541)] Received HEADERS for invalid stream 5
+[60960:259:0506/143959.415620:WARNING:controller_impl.cc(1189)] Background download complete, client: 6, completion type: 0, file size:265060
+[60972:259:0506/144002.584012:ERROR:gl_utils.cc(319)] [.WebGL-0x7005682a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[60960:259:0506/144004.775101:INFO:CONSOLE(1)] "CT Service worker installed", source: https://s3-eu-west-1.amazonaws.com/static.wizrocket.com/js/sw_webpush.js (1)
+[60960:259:0506/144004.845235:INFO:CONSOLE(24)] "[Meta Pixel] - Duplicate Pixel ID: 443170052834906.", source: https://connect.facebook.net/en_US/fbevents.js (24)
+[60960:259:0506/144005.080818:INFO:CONSOLE(1)] "CT Service worker activated", source: https://s3-eu-west-1.amazonaws.com/static.wizrocket.com/js/sw_webpush.js (1)
+[60960:259:0506/144005.232216:INFO:CONSOLE(2)] "Powered by AMP ⚡ HTML – Version 2203150226000 https://www.olx.co.id/mobil-bekas_c198?filter=m_tipe_eq_mobil-bekas-toyota-avanza%2Cm_transmission_eq_automatic%2Cm_year_between_2011_to_2011%2Cmake_eq_mobil-bekas-toyota&sorting=desc-price", source: https://cdn.ampproject.org/rtv/012203150226000/amp4ads-v0.mjs (2)
+[60960:259:0506/144005.286171:INFO:CONSOLE(3)] "Cannot assign to read only property 'call' of object '#<Object>'", source: https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C6NG4RS48LJ6QNNJ7CAG&lib=ttq (3)
+[60972:259:0506/144005.422306:ERROR:gl_utils.cc(319)] [.WebGL-0x7000751500]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[60960:259:0506/144005.541621:INFO:CONSOLE(2)] "Unrecognized feature: 'attribution-reporting'.", source: https://cdn.ampproject.org/rtv/012203150226000/v0/amp-ad-exit-0.1.mjs (2)
+[60972:259:0506/144013.748517:ERROR:gl_utils.cc(319)] [.WebGL-0x700568c400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[60960:259:0506/144014.482432:INFO:CONSOLE(24)] "[Meta Pixel] - Duplicate Pixel ID: 443170052834906.", source: https://connect.facebook.net/en_US/fbevents.js (24)
+[60960:259:0506/144014.807980:INFO:CONSOLE(3)] "Cannot assign to read only property 'call' of object '#<Object>'", source: https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C6NG4RS48LJ6QNNJ7CAG&lib=ttq (3)
+[60972:259:0506/144014.896827:ERROR:gl_utils.cc(319)] [.WebGL-0x7000753800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+[60960:259:0506/144027.237446:INFO:CONSOLE(2)] "Powered by AMP ⚡ HTML – Version 2203150226000 https://www.olx.co.id/jakarta-dki_g2000007/mobil-bekas_c198?filter=m_tipe_eq_mobil-bekas-toyota-avanza%2Cm_transmission_eq_automatic%2Cm_year_between_2011_to_2011%2Cmake_eq_mobil-bekas-toyota&sorting=asc-price", source: https://cdn.ampproject.org/rtv/012203150226000/amp4ads-v0.mjs (2)
+[60960:259:0506/144029.266416:INFO:CONSOLE(2)] "Unrecognized feature: 'attribution-reporting'.", source: https://cdn.ampproject.org/rtv/012203150226000/v0/amp-ad-exit-0.1.mjs (2)
+[60973:41987:0506/144048.149428:WARNING:sqlite_persistent_store_backend_base.cc(165)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:213 to client_task_runner_.
+[60973:41987:0506/144048.168559:WARNING:sqlite_persistent_store_backend_base.cc(165)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:213 to client_task_runner_.
+[60960:259:0506/144048.246622:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
