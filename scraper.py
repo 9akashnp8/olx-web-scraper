@@ -49,11 +49,11 @@ class Scraper:
         self.db_init()
     
     def db_init(self):
-        self.connection = psycopg2.connect(user=os.getenv("USER"),
-                                  password=os.getenv("PASSWORD"),
-                                  host=os.getenv("HOST"),
-                                  port=os.getenv("PORT"),
-                                  database=os.getenv("DATABASE"))
+        self.connection = psycopg2.connect(user=os.getenv("DB_USER"),
+                                  password=os.getenv("DB_PASSWORD"),
+                                  host=os.getenv("DB_HOST"),
+                                  port=os.getenv("DB_PORT"),
+                                  database=os.getenv("DB_DATABASE"))
         self.cursor = self.connection.cursor()
 
     def db_check(self):
@@ -61,21 +61,25 @@ class Scraper:
         for x in self.scraped_datas:
             args_str = f"{args_str},'{x[6]}'"
         print(args_str)
-        postgres_search_query = f"SELECT url FROM car_lists WHERE url IN ({args_str[1:]})"
+        postgres_search_query = f"SELECT * FROM car_lists WHERE url IN ({args_str[1:]})"
         print(postgres_search_query)
         self.cursor.execute(postgres_search_query)
-        result = [r[0] for r in self.cursor.fetchall()]
+        result = [r for r in self.cursor.fetchall()]
         print(result)
+        # if len(result) > 0:
+        #     self.scraped_datas = [value for value in result if value in self.scraped_datas]
 
 
     def db_insert(self):
         args_str = ''
+        if len(self.scraped_datas) == 0 : 
+            return
         for x in self.scraped_datas:
             prices = re.sub("[^0-9]", "", x[1]) 
-            args_str = f"{args_str},('{x[0]}',{prices},'{x[2]}','{x[3]}','{x[4]}','{x[5]}','{x[6]}','{x[7]}')"
+            args_str = f"{args_str},('{x[0]}',{prices},'{x[2]}','{x[3]}','{x[4]}','{x[5]}','{x[6]}')"
         print(args_str)
         # postgres_search_query = "SELECT url FROM car_lists WHERE url IN " + args_str
-        postgres_insert_query = "INSERT INTO car_lists (car_type, price, years, odo, created_at, loc, url, price_type) VALUES " + args_str[1:]
+        postgres_insert_query = "INSERT INTO car_lists (car_type, price, years, odo, created_at, loc, url) VALUES " + args_str[1:]
         # record_to_insert = (5, 'One Plus 6', 950)
         print(postgres_insert_query)
         self.cursor.execute(postgres_insert_query)
@@ -230,7 +234,7 @@ class Scraper:
                     exist_in = any(ad_link in x for x in self.scraped_datas)
                     print(exist_in)
                     if exist_in != True:
-                        self.scraped_datas.append([car_type, price, years, odo, loc, date, ad_link, price_type])
+                        self.scraped_datas.append([car_type, price, years, odo, loc, date, ad_link])
                 except NoSuchElementException:
                     pass
                 pass
