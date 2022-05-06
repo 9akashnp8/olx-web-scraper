@@ -18,12 +18,56 @@ import time #time for various wait/sleep functions
 import csv #csv for storing the scraped data
 import sys #sys for flushing the buffer (typing effect)
 
-area_list = ['Jakarta D.K.I.', 'Jawa Barat', 'Jawa Timur', 'Banten', 'Jawa Tengah', 'Yogyakarta D.I.', 'Sumatra Selatan', 'Sumatra Utara', 'Kalimantan Selatan', 'Bali', 'Riau', 'Lampung', 'Sulawesi Selatan', 'Aceh D.I.', 'Sumatra Barat', 'Kalimantan Timur', 'Kalimantan Barat', 'Jambi', 'Kepulauan Riau', 'Nusa Tenggara Barat']
-brand_list = ['Toyota', 'Honda', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'BMW', 'Suzuki', 'Daihatsu', 'Mazda', 'Lexus', 'Hyundai', 'Chevrolet', 'Datsun']
-#Welcome message
-print("OLX Web Scraper!")
-welcome_message = ["Scrap for any item an olx.in.", "All you need to provide is the search link to scrap", 
-"1. Go to olx.in and search the item", "2. Copy the queried url and provide it below"]
+class Scraper:
+    load_dotenv()
+    area_list = ['Jakarta D.K.I.', 'Jawa Barat', 'Jawa Timur', 'Banten', 'Jawa Tengah', 'Yogyakarta D.I.', 'Sumatra Selatan', 'Sumatra Utara', 'Kalimantan Selatan', 'Bali', 'Riau', 'Lampung', 'Sulawesi Selatan', 'Aceh D.I.', 'Sumatra Barat', 'Kalimantan Timur', 'Kalimantan Barat', 'Jambi', 'Kepulauan Riau', 'Nusa Tenggara Barat']
+    brand_list = ['Toyota', 'Honda', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'BMW', 'Suzuki', 'Daihatsu', 'Mazda', 'Lexus', 'Hyundai', 'Chevrolet', 'Datsun']
+    scraped_datas = []
+    #Link
+    url = "https://www.olx.co.id"
+    main_url = url+"/mobil-bekas_c198"
+    initial_url = ''
+    #Collect the data to scrap from user
+    
+    def __init__(self):
+        self.input_area = sys.argv[1]
+        self.input_brand = sys.argv[2]
+        self.input_model = sys.argv[3]
+        self.input_transmission = sys.argv[4]
+        self.input_year = sys.argv[5]
+        # self.input_area = input("Area (Jakarta, Banten, Jawa Timur) :")
+        # self.input_brand = input("Brand ('Toyota', 'Honda', 'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'BMW', 'Suzuki', 'Daihatsu', 'Mazda', 'Lexus', 'Hyundai', 'Chevrolet', 'Datsun') :")
+        # self.input_model = input("Model (CR-V, HR-V, etc) :")
+        # self.input_transmission = input("Transmission (automatic / manual) :")
+        # self.input_year = input("Year (1994,2020) :")
+        #Set chromedriver location (automated using webdriver-manager)
+        chrome_opt = webdriver.ChromeOptions()
+
+        chrome_opt.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2}) 
+        chrome_opt.add_argument("--no-sandbox") 
+        chrome_opt.add_argument("--disable-setuid-sandbox") 
+
+        chrome_opt.add_argument("--remote-debugging-port=9222")  # this
+
+        chrome_opt.add_argument("--disable-dev-shm-using") 
+        chrome_opt.add_argument("--disable-extensions") 
+        chrome_opt.add_argument("--disable-gpu") 
+        chrome_opt.add_argument("start-maximized") 
+        chrome_opt.add_argument("disable-infobars")
+        chrome_opt.add_argument(r"user-data-dir=.\cookies\\test") 
+
+        self.service = Service(executable_path=ChromeDriverManager().install())
+        #create a chrome webdriver instance
+        self.driver = webdriver.Chrome(service=self.service, chrome_options=chrome_opt)
+        self.db_init()
+    
+    def db_init(self):
+        self.connection = psycopg2.connect(user=os.getenv("DB_USER"),
+                                  password=os.getenv("DB_PASSWORD"),
+                                  host=os.getenv("DB_HOST"),
+                                  port=os.getenv("DB_PORT"),
+                                  database=os.getenv("DB_DATABASE"))
+        self.cursor = self.connection.cursor()
 
 #typing effect for welcome message
 for line in welcome_message: 
