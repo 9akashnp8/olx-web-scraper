@@ -1,20 +1,21 @@
 <img align="right" width="150" height="auto" src="https://i.imgur.com/uHdBRp2.png">
 
+
 # Olx Web Scraper
-Scrap olx.in using selenium-python
+Scrap olx.co.id using selenium-python
+Forked from https://github.com/9akashnp8/olx_web_scraper.git
 
 ## Table of Contents
   - [About](#about)
   - [Installation](#installation)
-  - [How it works](#how-it-works)
 
 ## About
-Using selenium, scrap olx id for listings of any search query and get the data saved on a csv for later analysis.
+Using selenium, scrap olx id for listings of any search query and store them in a database / write to local csv
 
 ## Installation
 1. Clone repo: 
 ```
-git clone https://github.com/9akashnp8/olx_web_scraper.git
+git clone 
 ```
 
 2. Create a virtual enviroment for the repo & activate it 
