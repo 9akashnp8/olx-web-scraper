@@ -60,7 +60,7 @@ class Scraper:
 
         self.service = Service(executable_path=ChromeDriverManager().install())
         #create a chrome webdriver instance
-        self.driver = webdriver.Chrome(service=self.service)
+        self.driver = webdriver.Chrome(service=self.service, chrome_options=chrome_opt)
         self.db_init()
     
     def db_init(self):
