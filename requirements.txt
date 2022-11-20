@@ -1,5 +1,6 @@
 async-generator==1.10
 attrs==21.4.0
+beautifulsoup4==4.11.1
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
@@ -16,6 +17,7 @@ requests==2.27.1
 selenium==4.1.0
 sniffio==1.2.0
 sortedcontainers==2.4.0
+soupsieve==2.3.2.post1
 trio==0.19.0
 trio-websocket==0.9.2
 urllib3==1.26.8
