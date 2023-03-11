@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "olx-web-scraper"
+version = "0.1.0"
+description = "Use python to scrap for listings on olx.in based on search query."
+authors = ["Akash NP <akashnp1998@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pymongo = "^4.3.3"
+python-decouple = "^3.8"
+dnspython = "^2.3.0"
+selenium = "^4.8.2"
+webdriver-manager = "^3.8.5"
+beautifulsoup4 = "^4.11.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
