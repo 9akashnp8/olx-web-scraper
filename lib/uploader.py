@@ -1,9 +1,10 @@
 from .db import get_database
 from pymongo.errors import DuplicateKeyError
+from decouple import config
 
 dbname = get_database()
 
-collection = dbname['polo_api_collection']
+collection = dbname[config('COLLECTION_NAME')]
 
 def uploader(data):
     for item in data:
