@@ -10,17 +10,24 @@ def page_source_loader(input_url):
     service = Service(executable_path=ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
     driver.get(input_url)
+    staleness_counter = 0
 
-    while True:
+    while staleness_counter <= 2:
         '''
         While loop to load all results for the search query by finding and clicking on the "Load More" button unless
         the button doesn't exist i.e., all results loaded, no more results to load. Without this, only the first 20 listings
         will be scraped
         '''
         try:
-            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@data-aut-id="btnLoadMore"]')))
-            driver.find_element(By.XPATH, '//*[@data-aut-id="btnLoadMore"]').click()
-        except ( NoSuchElementException, TimeoutException, StaleElementReferenceException ):
+            load_more_button = (
+                WebDriverWait(driver, 20)
+                .until(EC.visibility_of_element_located((By.XPATH, '//button[contains(@data-aut-id, "btnLoadMore")]')))
+            )
+            load_more_button.click()
+        except (NoSuchElementException, TimeoutException):
             break
+        except StaleElementReferenceException:
+            staleness_counter += 1
+            continue
 
     return driver.page_source
