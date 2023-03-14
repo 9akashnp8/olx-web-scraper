@@ -4,11 +4,18 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException,
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from fake_useragent import UserAgent
 
 def page_source_loader(input_url):
     service = Service(executable_path=ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service)
+    chrome_options = Options()
+    ua = UserAgent()
+    user_agent = ua.random
+    chrome_options.add_argument(f'user-agent={user_agent}')
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     driver.get(input_url)
     staleness_counter = 0
 
