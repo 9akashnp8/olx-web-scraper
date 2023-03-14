@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "olx_web_scraper"
-version = "0.2.1"
+version = "0.2.2"
 description = "Use python to scrap for listings on olx.in based on search query."
 authors = ["Akash NP <akashnp1998@gmail.com>"]
 license = "MIT"
