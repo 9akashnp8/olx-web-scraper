@@ -3,6 +3,13 @@
 # Olx Web Scraper
 CLI to Scrape OLX for Ad listing (Optimized for Car/Motocycle ads)
 
+> [!TIP]
+> **Looking for a more powerful experience?** Check out [**sekondly**](https://github.com/9akashnp8/sekondly) — an improved app built on top of this scraper that includes:
+> - 📊 Scoring of ads
+> - 📈 Key Performance Indicators (KPIs)
+> - ⭐ Recommended ads
+> - 🖥️ A neat HTML report with filters
+
 ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
